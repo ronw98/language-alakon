@@ -1,7 +1,7 @@
 # langage-alakon
 This idea is to familiarize with programming language creation by creating a crazy language.
 For now, the only thing written down is the lexicon analizer.
-##Installation
+## Installation
 You will need to compile the alakon_lexicon.lex file using flex.
 To do so, you need flex.
 
