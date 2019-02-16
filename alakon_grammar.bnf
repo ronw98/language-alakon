@@ -1,0 +1,20 @@
+//This is the grammar of the language, using the BNF notation
+//The terms are the following: "and", "or", "nope", "print", ";", "=", "+", "-", "*", "/", "(", ")", variable, number, "true", false", "maybe", "int", "bool", "raccoon"
+//This contains the following expressions: code (axiom), instruction, declaration, affectation, type, artihmetic_expression, boolean_expression, expression
+
+//A code contains at least one inctruction
+
+<code> ::= <intruction> (<code> | <none>)
+<instruction> ::= <declaration> | <affectation>
+<declaration> ::= <type> variable ";" | "=" <expression>
+<type> ::= "int" | "bool" | "raccoon"
+<expression> ::= <arithmetic_expression> | <boolean_expression>
+<arithmetic_expression> ::= number | variable | <addition> | <substraction> | <multiplication> | <division> | "(" <arithmetic_expression> ")"
+<addition> ::= <arithmetic_expression> "+" <arithmetic_expression>
+<substraction> ::= <arithmetic_expression> "-" <arithmetic_expression>
+<multiplication> ::= <arithmetic_expression> "*" <arithmetic_expression>
+<division> ::= <arithmetic_expression> "*" <arithmetic_expression>
+<boolean_expression> ::= "true" | "false" | "maybe" | <and> | <or> | <no> | "(" <boolean_expression> ")"
+<and> ::= <boolean_expression> "and" <boolean_expression>
+<or> ::= <boolean_expression> "or" <boolean_expression>
+<nope> ::= "nope" <boolean_expression>
