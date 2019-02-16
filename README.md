@@ -14,6 +14,6 @@ gcc -o lexicon lexicon.c
 
 Once you have your analyser compiled you can analyse your programm.
 ```bash
-lexicon < myprogram.kon
+./lexicon < myprogram.kon
 ```
 
