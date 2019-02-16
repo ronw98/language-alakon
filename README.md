@@ -5,7 +5,7 @@ For now, the only thing written down is the lexicon analizer.
 You will need to compile the alakon_lexicon.lex file using flex.
 To do so, you need flex.
 
-###On ubuntu
+### On ubuntu
 ```bash
 sudo apt install flex
 flex -o lexicon.c alakon_lexicon.lex
