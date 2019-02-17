@@ -22,4 +22,4 @@ alakon < testProgram.kon
 (.kon is the extension for alakon programs)
 
 ## What is coming next
-The next thing to do is to implement the variable type so that `int var = boolVar * 5` is not possible.
+Code generation

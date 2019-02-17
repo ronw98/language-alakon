@@ -186,7 +186,7 @@ affectation:            variable TOK_AFFECT arithmetic_expression TOK_ENDINSTR{
                         }
                         |
                         variable TOK_AFFECT boolean_expression TOK_ENDINSTR{
-                            variableAffectHandling(variable_table, "int",$1,$3);
+                            variableAffectHandling(variable_table, "bool",$1,$3);
                         };
 display:                TOK_DISP TOK_LEFTP expression TOK_RIGHTP TOK_ENDINSTR{
                             printf("Let's display this: %s\n",$3);
