@@ -5,8 +5,10 @@
 //A code contains at least one inctruction
 
 <code> ::= <intruction> (<code> | <none>)
-<instruction> ::= <declaration> | <affectation>
-<declaration> ::= <type> variable ";" | "=" <expression>
+<instruction> ::= <declaration> | <affectation> | <display>
+<display> ::= "print" "(" <expression> ")" ";"
+<affectation> ::= variable "=" <expression> ";"
+<declaration> ::= <type> variable ";" | "=" <expression> ";"
 <type> ::= "int" | "bool" | "raccoon"
 <expression> ::= <arithmetic_expression> | <boolean_expression>
 <arithmetic_expression> ::= number | variable | <addition> | <substraction> | <multiplication> | <division> | "(" <arithmetic_expression> ")"
@@ -14,7 +16,7 @@
 <substraction> ::= <arithmetic_expression> "-" <arithmetic_expression>
 <multiplication> ::= <arithmetic_expression> "*" <arithmetic_expression>
 <division> ::= <arithmetic_expression> "*" <arithmetic_expression>
-<boolean_expression> ::= "true" | "false" | "maybe" | <and> | <or> | <no> | "(" <boolean_expression> ")"
+<boolean_expression> ::= "true" | "false" | "maybe" | variable | <and> | <or> | <no> | "(" <boolean_expression> ")"
 <and> ::= <boolean_expression> "and" <boolean_expression>
 <or> ::= <boolean_expression> "or" <boolean_expression>
 <nope> ::= "nope" <boolean_expression>
