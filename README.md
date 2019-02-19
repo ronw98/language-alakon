@@ -11,13 +11,13 @@ sudo apt install flex bison
 You will also need gcc (which should be already installed on your computer).
 
 ## Running the programm
-To build the compiler (or what there is of it), just execute the make script:
+To build the compiler , just execute the make script:
 ```bash
 ./make
 ```
-To analyse a programm you wrote, just type:
+To compile an alakon program:
 ```bash
-alakon < testProgram.kon
+alk < testProgram.kon
 ```
 (.kon is the extension for alakon programs)
 
