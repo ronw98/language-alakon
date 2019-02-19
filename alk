@@ -1,0 +1,7 @@
+#!/bin/bash
+#This script compiles .kon files into executables. It is called this way: ./alk file.kon and creates the file executable
+bin/alakon $1
+inCfile=$(echo $1|sed 's/.kon/.c/')
+outfile=$(echo $1|sed 's/.kon//')
+gcc -o $outfile $inCfile
+rm $inCfile
