@@ -1,0 +1,11 @@
+bool varBool1;
+varBool1 = maybe;
+bool varBool2 = true;
+bool varBool3 = varBool1 and varBool2;
+int varInt1;
+varInt1 = MeZoGaBu;
+int varInt2 = BuGa;
+int varInt3 = varInt1 * (varInt2);
+print(varBool3);
+print(varInt3);
+raccoon Brice;

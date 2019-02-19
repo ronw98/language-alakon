@@ -66,8 +66,8 @@ variable [[:alpha:]][[:alnum:]]*
 ";"         {return TOK_ENDINSTR;}
 "("         {return TOK_LEFTP;}
 ")"         {return TOK_RIGHTP;}
-"true"      {return TOK_TRUE;}
-"false"     {return TOK_FALSE;}
+"true"      {return TOK_TRU;}
+"false"     {return TOK_FALS;}
 "maybe"     {return TOK_MAYBE;}
 "int"       {return TOK_INT;}
 "bool"      {return TOK_BOOL;}
