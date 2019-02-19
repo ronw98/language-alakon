@@ -1,6 +1,6 @@
 # langage-alakon
 The idea is to learn how to create an programming laguage, in a crazy way.
-For now, the lexicon and syntax analyzers are written, but will be improved (as the language evolves).
+Really basic stuff (ints and bools) is now operationnal.
 
 ## Installation
 This project requires flex and bison in order to work.
@@ -22,4 +22,4 @@ alakon < testProgram.kon
 (.kon is the extension for alakon programs)
 
 ## What is coming next
-Code generation
+Syntax shortcuts (+=, -= ...), comparators and constrol structs / loops
