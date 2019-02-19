@@ -8,7 +8,6 @@
     bool error_lexicon = false;
 
     /*Declaration of some functions useful later*/
-    int power(int a, int b);
 
     int power(int a, int b){
             int i, res=1;
@@ -18,7 +17,6 @@
             return res;
     }
 
-    int fromGaToDec(char * num);
 
     int fromGaToDec(char* num)
     {

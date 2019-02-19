@@ -22,4 +22,4 @@ alakon < testProgram.kon
 (.kon is the extension for alakon programs)
 
 ## What is coming next
-Syntax shortcuts (+=, -= ...), comparators and constrol structs / loops
+Syntax shortcuts (+=, -= ...), comparators and constrol structs / loops. Oh and mybe and negative numbers as well. Could be usefull.

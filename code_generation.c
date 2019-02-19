@@ -1,8 +1,59 @@
 #include "alakon.h"
 
+char* fromIntToGa(int num){
+    int i = 0;
+    /*Getting the power of 4 too big to represent this number*/
+    while(num / power(4,i)!=0){
+        i++;
+    }
+    char * res = (char*) malloc(2*i*sizeof(char));
+    for(i=i-1;i>=0;i--){
+        int pow = power(4,i);
+        int div = num / pow;
+        num = num% pow;
+        switch(div){
+            case 0:
+                *res = 'G';
+                res++;
+                *res = 'a';
+                res++;
+                break;
+            case 1:
+                *res = 'B';
+                res++;
+                *res = 'u';
+                res++;
+                break;
+            case 2:
+                *res = 'Z';
+                res++;
+                *res = 'o';
+                res++;
+                break;
+            case 3:
+                *res = 'M';
+                res++;
+                *res = 'e';
+                res++;
+                break;
+        }
+    }
+    return res;
+}
+
 void code_start(){
     fprintf(outFile, "/* This file has been generated using the alakon compiler */\n");
     fprintf(outFile, "#include <stdio.h>\n#include <stdlib.h>\n#include <stdbool.h>\n#include<time.h>\n");
+    fprintf(outFile, "int power(int a, int b){\n");
+    fprintf(outFile, "int i, res =1;\n");
+    fprintf(outFile, "for(i=0;i<b;i++){\n");
+    fprintf(outFile, "res*=a;\n}\nreturn res;\n}\n");
+    fprintf(outFile, "char * fromIntToGa(int num){\nint i=0;\nwhile(num/power(4,i)!=0){\n");
+    fprintf(outFile, "i++;}\nchar * res = (char*) malloc(2*i*sizeof(char));int charIndex = 0;\nfor(i=i-1;i>=0;i--){\n");
+    fprintf(outFile, "int pow = power(4,i);\nint div = num / pow;\nnum = num %s pow;\nswitch(div){\n","%");
+    fprintf(outFile, "case 0:\nres[charIndex] = 'G';charIndex++;res[charIndex] = 'a';charIndex++;break;\ncase 1:\nres[charIndex] = 'B';charIndex++;res[charIndex] = 'u';charIndex++;break;\n");
+    fprintf(outFile, "case 2:\nres[charIndex] = 'Z';charIndex++;res[charIndex] = 'o';charIndex++;break;\ncase 3:\nres[charIndex] = 'M',charIndex++;res[charIndex] = 'e';charIndex++;break;\n");
+    fprintf(outFile, "}}return res;}\n");
     fprintf(outFile, "int main(){\nsrand(time(NULL));\n");
 }
 
@@ -130,17 +181,16 @@ void code_generation(GNode * ast){
                 break;
             case MAYBE:
                 fprintf(outFile,"rand() %s","\%2");
-                /*bo=rand()%2;
-                if(bo){
-                    fprintf(outFile,"true");
-                }else{
-                    fprintf(outFile,"false");
-                }*/
                 break;
             case PAR_EXPR:
                 fprintf(outFile,"(");
                 code_generation(g_node_nth_child(ast,0));
                 fprintf(outFile,")");
+                break;
+            case PRINTVARI:
+                fprintf(outFile, "printf(\"%%s\\n\",fromIntToGa(");
+                code_generation(g_node_nth_child(ast,0));
+                fprintf(outFile,"));\n");
         }
     }
 }

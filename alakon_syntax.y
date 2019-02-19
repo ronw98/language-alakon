@@ -301,7 +301,7 @@ display:                TOK_DISP TOK_LEFTP variable TOK_RIGHTP TOK_ENDINSTR{
                             Variable* var =g_hash_table_lookup(variable_table,(char*) g_node_nth_child($3,0)->data);
                             if(strcmp("int",var->type)==0){
                                 printf("Let's display this arithmetic thing: %s\n",(char*)$3);
-                                $$ = g_node_new((gpointer) PRINTI);
+                                $$ = g_node_new((gpointer) PRINTVARI);
                                 g_node_append($$,$3);
                             }else{
                                 printf("Let's display this boolean thing: %s\n",(char*)$3);

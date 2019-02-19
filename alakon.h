@@ -47,10 +47,15 @@ extern void code_end(void);
 #define FALS 20
 #define MAYBE 21
 #define PAR_EXPR 22
+#define PRINTVARI 26
 
 
 //Functions to handle variables in alakon_syntax.y
 GNode* variableAffectHandling(GHashTable * hTable, char* expectedType,GNode* varName,GNode* data);
 GNode* variableDeclarHandling(GHashTable* hTable,GNode* type,GNode* varName);
+
+char* fromIntToGa(int num);
+int fromGaToDec(char * num);
+int power(int a, int b);
 
 #endif
