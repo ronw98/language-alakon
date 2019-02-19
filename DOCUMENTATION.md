@@ -1,6 +1,6 @@
-#Documentation
+# Documentation
 This is a small documentation file for the alakon laguage.
-##Types
+## Types
 There are (for now) two types of variables in this language:
 * Integers
 * Booleans
@@ -8,7 +8,7 @@ Integers are under `GaBuZoMe` format. This is a base 4, `Ga = 0`, `Me = 3`
 Booleans can take value `true`, `false` and `maybe`.
 `maybe` is either true or false, randomly (the variable is set at the begining of the program).
 
-##A bit of code
+## A bit of code
 ```
 int varInt1;
 int varInt2 = BuBuGaMeGa;
