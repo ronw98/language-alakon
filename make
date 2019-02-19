@@ -18,6 +18,5 @@ else
 	echo "inCfile=\$(echo "\$1"|sed 's/.kon/.c/')" >> alk
 	echo "outfile=\$(echo "\$1"|sed 's/.kon//')" >> alk
 	echo "gcc -o \$outfile \$inCfile" >> alk
-	echo "rm \$inCfile" >> alk
 	chmod u+x alk
 fi

@@ -4,9 +4,11 @@ This is a small documentation file for the alakon laguage.
 There are (for now) two types of variables in this language:
 * Integers
 * Booleans
+* Raccoons
 Integers are under `GaBuZoMe` format. This is a base 4, `Ga = 0`, `Me = 3`
 Booleans can take value `true`, `false` and `maybe`.
 `maybe` is either true or false, randomly (the variable is set at the begining of the program).
+Raccoons are just used for the intermediate .c file for now.
 
 ## A bit of code
 ```
@@ -28,4 +30,6 @@ print(varInt1);
 print(varBool1);
 print(Bu+Me);
 print(maybe and maybe);
+
+raccoon varRaccoon;
 ```
