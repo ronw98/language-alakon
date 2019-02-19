@@ -18,7 +18,7 @@ To build the compiler , just execute the make script:
 ```
 To compile an alakon program:
 ```bash
-alk < testProgram.kon
+alk testProgram.kon
 ```
 (.kon is the extension for alakon programs)
 
@@ -26,7 +26,7 @@ alk < testProgram.kon
 ### Compiling a programm
 To compile an alakon program:
 ```bash
-alk < testProgram.kon
+alk testProgram.kon
 ```
 (.kon is the extension for alakon programs)
 
