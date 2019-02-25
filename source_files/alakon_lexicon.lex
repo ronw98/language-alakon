@@ -44,9 +44,9 @@
 /*Declaration of flex variables.  These are the terms we're gonna use in our language*/
 
 /*numbers are in GauZoMeu notation (which is just a base 4)*/
-number Ga$|(Ga|Bu|Zo|Me)(Ga|Bu|Zo|Me)*
+number Ga$|(Bu|Zo|Me)(Ga|Bu|Zo|Me)*
 
-variable [[:alpha:]][[:alnum:]]*
+variable [[:alpha:]][[:alnum:]]* /*Replace by this ([a-zA-Z]\w(?<!(Ga|Bu|Zo|Me))\w*)|[a-zA-Z]*/
 
 /*Between the %% beacons are all the actions to do when encountering a term*/
 
