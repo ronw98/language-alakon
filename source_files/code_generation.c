@@ -43,7 +43,7 @@ char* fromIntToGa(int num){
 
 void code_start(){
     fprintf(outFile, "/* This file has been generated using the alakon compiler */\n");
-    fprintf(outFile, "#include <stdio.h>\n#include <stdlib.h>\n#include <stdbool.h>\n#include<time.h>\n");
+    fprintf(outFile, "#include <stdio.h>\n#include <stdlib.h>\n#include <stdbool.h>\n#include<time.h>\n#include<string.h>\n#include<math.h>\n");
     fprintf(outFile, "int power(int a, int b){\n");
     fprintf(outFile, "int i, res =1;\n");
     fprintf(outFile, "for(i=0;i<b;i++){\n");
@@ -75,7 +75,7 @@ void code_generation(GNode * ast){
                 fprintf(outFile, "int ");
                 break;
             case BOOLEANT:
-                fprintf(outFile, "bool ");
+                fprintf(outFile, "float ");
                 break;
             case RACCOON:
                 fprintf(outFile,"/*\n");
@@ -126,15 +126,10 @@ void code_generation(GNode * ast){
                 fprintf(outFile,");\n");
                 break;
             case PRINTB:
-                fprintf(outFile,"printf(\"%%s\\n\",");
-                GNode * maybe = g_node_find(ast,G_IN_ORDER,G_TRAVERSE_LEAVES,(gpointer)MAYBE);
-                if(maybe!=NULL){
-                    fprintf(outFile,"maybe?");
-                }else{
-                    code_generation(g_node_nth_child(ast,0));
-                    fprintf(outFile,"?\"true\":\"false\"");
-                }
-                fprintf(outFile,");\n");
+                fprintf(outFile,"float tmpVarForBool =  ");
+                code_generation(g_node_nth_child(ast,0));
+                fprintf(outFile,";\n");
+                fprintf(outFile,"if(tmpVarForBool==0){printf(\"false\\n\");}else if(tmpVarForBool == floor(tmpVarForBool)){printf(\"true\\n\");}else{printf(\"maybe?\\n\");}");
                 break;
             case NUM:
                 fprintf(outFile,"%s",(char*)g_node_nth_child(ast,0)->data);
@@ -161,26 +156,27 @@ void code_generation(GNode * ast){
                 break;
             case OR:
                 code_generation(g_node_nth_child(ast,0));
-                fprintf(outFile,"||");
+                fprintf(outFile,"+");
                 code_generation(g_node_nth_child(ast,1));
                 break;
             case AND:
                 code_generation(g_node_nth_child(ast,0));
-                fprintf(outFile,"&&");
+                fprintf(outFile,"*");
                 code_generation(g_node_nth_child(ast,1));
                 break;
             case NOPE:
-                fprintf(outFile,"!");
+                fprintf(outFile,"(-(");
                 code_generation(g_node_nth_child(ast,0));
+                fprintf(outFile,"))");
                 break;
             case TRU:
-                fprintf(outFile,"true");
+                fprintf(outFile,"1");
                 break;
             case FALS:
-                fprintf(outFile,"false");
+                fprintf(outFile,"0");
                 break;
             case MAYBE:
-                fprintf(outFile,"rand() %s","\%2");
+                fprintf(outFile,"0.5");
                 break;
             case PAR_EXPR:
                 fprintf(outFile,"(");

@@ -494,16 +494,19 @@ int main(int argc, char** argv){
     printf(ANSI_COLOR_CYAN"Results:\n"ANSI_COLOR_RESET);
     if(error_lexicon){
         printf(ANSI_COLOR_RED "You idiot wrote unknown words! Why would you do that?\n" ANSI_COLOR_RESET);
+        return -12;
     }else{
         printf(ANSI_COLOR_GREEN "Congrats! Your pityful mind managed to write down some actual words\n" ANSI_COLOR_RESET);
     }
     if(error_syntax){
         printf(ANSI_COLOR_RED "Why make proper senteces when you can not\n" ANSI_COLOR_RESET);
+        return -12;
     }else{
         printf(ANSI_COLOR_GREEN "Nice lines here bro\n" ANSI_COLOR_RESET);
     }
     if(error_semantic){
         printf(ANSI_COLOR_RED "What you wrote doesn't make any sense!\n" ANSI_COLOR_RESET);
+        return -12;
     }else{
         printf(ANSI_COLOR_GREEN "I understand what you are saying\n" ANSI_COLOR_RESET);
     }

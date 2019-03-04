@@ -12,11 +12,11 @@ else
 	mv alakon_syntax.tab.* source_files/
 	gcc source_files/alakon_lexicon.c source_files/alakon_syntax.tab.c source_files/code_generation.c `pkg-config --cflags --libs glib-2.0` -o bin/alakon
 	rm source_files/alakon_syntax.tab.* source_files/alakon_lexicon.c alk
-	echo "#!/bin/bash" >> alk 
+	echo "#!/bin/bash" >> alk
 	echo "#This script compiles .kon files into executables. It is called this way: ./alk file.kon and creates the file executable" >> alk
 	echo "bin/alakon \$1" >> alk
 	echo "inCfile=\$(echo "\$1"|sed 's/.kon/.c/')" >> alk
 	echo "outfile=\$(echo "\$1"|sed 's/.kon//')" >> alk
-	echo "gcc -o \$outfile \$inCfile" >> alk
+	echo "gcc \$inCfile -lm -o \$outfile " >> alk
 	chmod u+x alk
 fi

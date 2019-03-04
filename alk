@@ -3,4 +3,4 @@
 bin/alakon $1
 inCfile=$(echo $1|sed 's/.kon/.c/')
 outfile=$(echo $1|sed 's/.kon//')
-gcc -o $outfile $inCfile
+gcc $inCfile -lm -o $outfile 
